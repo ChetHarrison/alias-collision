@@ -1,0 +1,17 @@
+.DS_Store
+*.swp
+*.swo
+*.orig
+tmp/
+ext/
+node_modules/
+coverage/
+.grunt/
+npm-debug.log
+bower_components/
+.grunt
+reports
+jsdoccer/
+doccer/
+api/
+pad.js
