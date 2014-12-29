@@ -9,10 +9,4 @@ This is a node.js micro library that will prefix any strings in a reserve words 
 
 ## Use
 
-Let's say you wanted to write something like this
-
-```js
-var docs = {
-	
-	};
-```
+Under construction ...
