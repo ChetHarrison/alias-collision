@@ -3,7 +3,7 @@
 var _ = require('lodash'),
 
 
-	_reserveWords = require('resurve-words/javascript.js'),
+	_reserveWords = require('./reserve-words/javascript.js'),
 	
 	
 	_reserveWordPrefix = 'reserve_',
@@ -32,7 +32,7 @@ var _ = require('lodash'),
 		},
 		
 		
-		getPrefix: function(prefix) {
+		getPrefix: function() {
 			return _reserveWordPrefix;
 		},
 		
@@ -57,37 +57,20 @@ var _ = require('lodash'),
 		
 		
 		unPrefix: function(word) {
+			var unPrefixedWord;
 			if (!_isPrefixed(word)) { return word; } // idempotent
 			
-			return word.slice(_prefixLength);
+			unPrefixedWord = word.slice(_prefixLength);
+			
+			if (_.contains(_reserveWords, unPrefixedWord)) {
+				word = unPrefixedWord;
+			}
+			
+			return word;
 		}
 	};
 
 module.exports = alias;
 
-
-// tests
-// console.log(alias.prefix('chet')); // chet
-
-// var target = alias.prefix('constructor');
-// console.log(target);// reserve_constructor
-// target = alias.unPrefix(target);
-// console.log(target); //constructor
-
-// alias.addReserveWords('jason');
-// var target = alias.prefix('jason');
-// console.log(target); // reserve_jason
-// target = alias.unPrefix(target);
-// console.log(target); // jason
-// alias.addReserveWords(['chet', 'mark']);
-
-// var target = alias.prefix('chet');
-// console.log(target); // reserve_chet
-// target = alias.prefix('chet');
-// console.log(target); // reserve_chet
-// target = alias.unPrefix(target);
-// console.log(target); // chet
-// target = alias.unPrefix(target);
-// console.log(target); // chet
 
 	

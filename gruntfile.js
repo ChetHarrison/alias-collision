@@ -1,15 +1,17 @@
 'use strict';
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
+
+	var testFiles = ['app.js'];
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
-
-		watch: {
-			files: ['alias-collision.js'],
-			tasks: ['default']
+		nodemon: {
+			dev: {
+				script: 'app.js'
+			}
 		},
-
 
 		jasmine_node: {
 			options: {
@@ -20,32 +22,31 @@ module.exports = function (grunt) {
 				specNameMatcher: 'spec',
 				jUnit: {
 					report: true,
-					savePath: './tests/coverage',
+					savePath : './tests/report/',
 					useDotNotation: true,
 					consolidate: true
 				}
 			},
-			all: ['tests/specs/**/*.js']
-			// , coverage: {}
+			all: ['tests/specs/']
 		},
 
-
-		plato: {
-			report: {
-				options: {
-					jshint: grunt.file.readJSON('.jshintrc')
-				},
-				files: {
-					reports: ['<%= watch.files %>']
-				}
-			}
-		}
+        plato: {
+            report: {
+                options : {
+                    jshint : grunt.file.readJSON('.jshintrc')
+                },
+                files: {
+                    'reports': testFiles
+                }
+            }
+        }
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	// grunt.loadNpmTasks('grunt-jasmine-node-coverage');
+	grunt.loadNpmTasks('grunt-nodemon');
 	grunt.loadNpmTasks('grunt-jasmine-node');
 	grunt.loadNpmTasks('grunt-plato');
 
-	grunt.registerTask('default', 'Run test suite.', ['jasmine_node']);
+	grunt.registerTask('doc', ['docco', 'plato']);
+	grunt.registerTask('test', ['jasmine_node']);
+	grunt.registerTask('default', ['nodemon']);
 };
