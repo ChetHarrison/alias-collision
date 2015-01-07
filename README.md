@@ -11,10 +11,12 @@ This is a node.js micro library that will prefix any strings in a reserve words 
 ```js
 var aliasCollision = require('alias-collision.js'),
 	reserveWord = 'function';
-	
+
+// alias a reserve word
 reserveWord = aliasCollision.prefix(reserveWord);
 console.log(reserveWord);  // reserve_function
 
+// un-alias a reserve word
 reserveWord = aliasCollision.unPrefix(reserveWord);
 console.log(reserveWord);  // function
 
@@ -31,8 +33,7 @@ console.log(reserveWord);  // new-prefix-function
 console.log(aliasCollision.getPrefix());  // new-prefix-
 
 // alias-collision will not alias words that are not
-// on the resurve word list.
-
+// on the reserve word list.
 reserveWord = aliasCollision.prefix('aintItFunkyNow');
 console.log(reserveWord);  // aintItFunkyNow
 
