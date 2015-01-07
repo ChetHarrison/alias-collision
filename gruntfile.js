@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 
 		nodemon: {
 			dev: {
-				script: 'app.js'
+				script: 'alias-collision.js'
 			}
 		},
 

@@ -1,17 +1,9 @@
 'use strict';
 
 var _ = require('lodash'),
-
-
 	_reserveWords = require('./reserve-words/javascript.js'),
-	
-	
 	_reserveWordPrefix = 'reserve_',
-	
-	
 	_prefixLength = _reserveWordPrefix.length,
-	
-	
 	_isPrefixed = function(word) {
 		var prefix;
 			
@@ -30,6 +22,7 @@ var _ = require('lodash'),
 			_reserveWordPrefix = prefix;
 			_prefixLength = _reserveWordPrefix.length;
 		},
+		
 		
 		
 		getPrefix: function() {

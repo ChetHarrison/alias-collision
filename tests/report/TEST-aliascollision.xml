@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-<testsuite name="alias-collision" errors="0" tests="10" failures="0" time="0.004" timestamp="2014-12-29T15:31:38">
+<testsuite name="alias-collision" errors="0" tests="10" failures="0" time="0.006" timestamp="2015-01-07T10:23:26">
   <testcase classname="alias-collision" name="prepend default prefix to reserve word funciton" time="0.003"></testcase>
   <testcase classname="alias-collision" name="prepend default prefix to reserve word funciton should be idempotent" time="0"></testcase>
-  <testcase classname="alias-collision" name="should not prepend default prefix to non reserve word chet" time="0.001"></testcase>
-  <testcase classname="alias-collision" name="should unprepend reserve word" time="0"></testcase>
+  <testcase classname="alias-collision" name="should not prepend default prefix to non reserve word chet" time="0"></testcase>
+  <testcase classname="alias-collision" name="should unprepend reserve word" time="0.001"></testcase>
   <testcase classname="alias-collision" name="unprepend should be idempotent" time="0"></testcase>
   <testcase classname="alias-collision" name="unprepend should not work on non reserve words" time="0"></testcase>
   <testcase classname="alias-collision" name="be able to add arrays to reserve words list" time="0"></testcase>
